@@ -6,13 +6,17 @@ import './App.css';
 import {BrowserRouter as Router, Route } from 'react-router-dom';
 import About from './About';
 import axios from 'axios';
+import Loginpage from './Loginpage';
+import Signinpage from './Signinpage';
+
+
 
 class App extends Component{
 state = {
   todos:[     ]
-
   }
- componentDidMount(){
+ 
+  componentDidMount(){
    axios.get('https://jsonplaceholder.typicode.com/todos?_limit=10').then(res=>this.setState({todos:res.data}))
  }
   //toggle compl
@@ -54,19 +58,27 @@ render() {
     <div className="App">
       <div className="container">
     <Header />
-    
+    <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+  crossorigin="anonymous"
+/>
     <Route exact path="/" render={props=>(
       <React.Fragment>
-      <Todos todos={this.state.todos} markComplete={this.markComplete}
-      deltodo={this.deltodo} />
+     
+      <Todos todos={this.state.todos} markComplete={this.markComplete}  deltodo={this.deltodo} />
       <AddTo addTo={this.AddTo } />
 
       </React.Fragment>
     )}/>
+    <Route path="/Loginpage" component={Loginpage}/>
     <Route path="/About" component={About}/>
+    <Route path="/Signinpage" component={Signinpage}/>
     </div>
     </div>
     </Router>
+    
   );
 }
 }

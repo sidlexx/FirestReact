@@ -24,12 +24,12 @@ export class TodoItem extends Component {
             <div style={this.getStyle()}>
                 <h2> <input type="checkbox" onChange={this.props.markComplete.bind(this,id)} ></input>{' '}
                     {title}
-                    <button onClick={this.props.deltodo.bind(this,id)} style={BtnStyle}> Del </button>
+                    <button  onClick={this.props.deltodo.bind(this,id)} style={BtnStyle}> Del </button>
                     </h2>
             </div>
         )
     }
-
+    
 }
 
 TodoItem.propTypes = {

@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Button from 'react-bootstrap/Button'
 
 export class AddTo extends Component {
 
@@ -22,9 +23,10 @@ export class AddTo extends Component {
                 onChange={this.onChange}
                 >
                 </input>                
-                <input
-                type="submit" value="add task"  className="btn" style={{flex:'1'}}>
-                </input>
+                
+                <Button variant="primary" type="submit">
+                Submit
+                </Button>    
             
             </form>
         )
